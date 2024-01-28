@@ -48,23 +48,18 @@ $(document).ready(function () {
         // Obtén los datos del formulario
         var formData = $("#miFormulario").serialize();
 
-      // Reemplaza la sección de $.ajax en tu index.js con el siguiente código usando fetch
-      fetch('/enviar-formulario', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams(formData),
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-        // Actualiza el contenido del span con el mensaje de resultado
-        $("#message").text(data.message);
-      })
-      .catch(error => {
-        console.error('Error al enviar el formulario:', error);
-        $("#message").text("Error al enviar el formulario.");
-      });
+        $.ajax({
+          type: "POST",
+          url: "/enviar-formulario",
+          data: formData,
+          success: function (response) {
+            console.log('Éxito:', response);
+            $("#message").text(response.message);
+          },
+          error: function (err) {
+            console.log('Error al enviar el formulario:', err.responseText);
+            $("#message").text('Error al enviar el formulario.');
+          },
+        });        
     });
   });
