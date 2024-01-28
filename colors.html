@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative; /* Agregado */
+            z-index: 2; /* Agregado */
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            display: inline-block;
+        }
+
+        #bMore {
+            display: none;
+            cursor: pointer;
+            z-index: 3; /* Agregado */
+        }
+
+        #links {
+            display: flex;
+            flex-direction: column;
+            transition: margin-left 0.3s ease-in-out; /* Cambiado */
+            margin-left: -100%; /* Cambiado */
+        }
+
+        @media only screen and (max-width: 600px) {
+            #bMore {
+                display: block;
+            }
+
+            #links {
+                position: fixed;
+                top: 0;
+                right: 0; /* Ajustado */
+                height: 100%;
+                width: 80%; /* Ajustado */
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 1;
+                margin-left: -80%; /* Ajustado */
+                justify-content: flex-start;
+                align-items: flex-start;
+            }
+
+            #links.active {
+                margin-left: 0; /* Ajustado */
+            }
+        }
+    </style>
+    <title>Navbar Responsivo</title>
+</head>
+<body>
+
+<nav>
+    <div id="menu-content">
+        <a href="#">Inicio</a>
+        <a href="#">Acerca de</a>
+        <a href="#">Servicios</a>
+        <a href="#">Contacto</a>
+    </div>
+    <span id="menu-btn">&#9776; Menú</span>
+</nav>
+
+<div>
+    <h1>Contenido Principal</h1>
+    <p>Este es el contenido principal de la página.</p>
+</div>
+
+<script>
+    document.getElementById('menu-btn').addEventListener('click', function() {
+        document.getElementById('menu-content').classList.toggle('active');
+    });
+</script>
+
+</body>
+</html>
+
+
+.item1 {
+    font-family: 'Anton', sans-serif;
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    padding: 5px;
+    z-index: 1000; 
+    background-color: #001F3F;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    transition: top 0.3s; /* Agrega una transición suave para el cambio de posición */
+  }
+  
+  .logo img{
+    width: 200px;
+    height: 50px;
+    margin-left: 10px;
+  }
+  
+  .links{
+    margin-right: 30px;
+    display: flex;
+    gap: 10px;  
+    flex-wrap: wrap;
+  }
+  
+  .links a{
+    text-decoration: none;
+    color: white;
+  }
+  
+  .links a:hover{
+    color: #0074E4;
+    cursor: pointer;
+  }
+  
+  .collapsed {
+    display: none;
+  }
+  
+  .mobile {
+    display: none;
+  }
+  
+  .mobile .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+  }
+  
+  .mobile .header button {
+    border: none;
+    background-color: #001F3F;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+  }
+  
+  .logo {
+    min-width: 250px;
+  }
+  
+  @media screen and (max-width: 500px) {
+  
+    .desktop {
+      display: none;
+    }
+  
+    .mobile {
+      display: block;
+    }
+  
+    .logo img{
+      margin-left: auto;
+    }
+  
+    .links{
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  }
+
+
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #FFFFFF;
+        }
+
+        .flex-container{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+
+        }
+
+        .item1{
+            background-color: #001F3F;
+            width: 300px;
+            height: 300px;
+        }
+
+        .item2{
+            background-color: #001C2E;
+            width: 300px;
+            height: 300px;
+        }
+
+        .item3{
+            background-color: #0074E4;
+            width: 300px;
+            height: 300px;
+        }
+
+        .item4{
+            background-color: #4682B4;
+            width: 300px;
+            height: 300px;
+        }
+
+        .item5{
+            background-color: #6B7B8C;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="item1"></div>
+        <div class="item2"></div>
+        <div class="item3"></div>
+        <div class="item4"></div>
+        <div class="item5"></div>
+    </div>
+</body>
+</html>-->
