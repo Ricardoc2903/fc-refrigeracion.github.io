@@ -1,18 +1,19 @@
-// app.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const db = require('./db');  // Importa la configuración de la base de datos
+const cors = require('cors');
 
 const app = express();
 const port = 3000;
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors()); // Coloca esto antes de las demás configuraciones de middleware
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.send('index.html');
+  res.sendFile(path.join(__dirname, 'public', 'index.html')); // Asegúrate de que se envíe el archivo correcto
 });
 
 // Ruta para manejar los datos del formulario
