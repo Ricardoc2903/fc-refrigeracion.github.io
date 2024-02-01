@@ -8,7 +8,7 @@ const app = express();
 const port = 3000;
 
 const corsOptions = {
-  origin: 'https://fc-refrigeracion-github-aye4oa03b-ricardoc2903s-projects.vercel.app', // Replace with your client's origin
+  origin: 'https://fc-refrigeracion-github-aye4oa03b-ricardoc2903s-projects.vercel.app/contacto.html', 
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204,
