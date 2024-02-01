@@ -46,7 +46,7 @@ $(document).ready(function () {
   
       $.ajax({
         type: "POST",
-        url: "https://fc-refrigeracion-github-282va33ol-ricardoc2903s-projects.vercel.app/contacto.html/enviar-formulario",
+        url: "/enviar-formulario",
         data: formData,
         success: function (response) {
           console.log("Éxito:", response);
