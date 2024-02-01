@@ -39,27 +39,23 @@ $(document).ready(function () {
 
   //Mensaje de forulario
   $(document).ready(function () {
-    console.log("Documento listo");
-    // Captura el evento de envío del formulario
     $("#miFormulario").submit(function (e) {
-        console.log("Formulario enviado");
-        e.preventDefault(); // Evita el envío normal del formulario
-
-        // Obtén los datos del formulario
-        var formData = $("#miFormulario").serialize();
-
-        $.ajax({
-          type: "POST",
-          url: "/enviar-formulario",
-          data: formData,
-          success: function (response) {
-            console.log('Éxito:', response);
-            $("#message").text(response.message);
-          },
-          error: function (err) {
-            console.log('Error al enviar el formulario:', err.responseText);
-            $("#message").text('Error al enviar el formulario.');
-          },
-        });        
+      e.preventDefault();
+  
+      var formData = $("#miFormulario").serialize();
+  
+      $.ajax({
+        type: "POST",
+        url: "https://fc-refrigeracion-github-282va33ol-ricardoc2903s-projects.vercel.app/contacto.html/enviar-formulario",
+        data: formData,
+        success: function (response) {
+          console.log("Éxito:", response);
+          $("#message").text(response.message);
+        },
+        error: function () {
+          console.log("Error al enviar el formulario.");
+          $("#message").text("Error al enviar el formulario.");
+        },
+      });
     });
   });
