@@ -37,19 +37,30 @@ $(document).ready(function () {
       nav.classList.remove("visible");
   })
 
+// Captura el evento de envío del formulario
+$("#miFormulario").submit(function (e) {
+  console.log("Formulario enviado");
+  e.preventDefault(); // Evita el envío normal del formulario
+
+  // Crea un objeto FormData para almacenar los datos del formulario
+  var formData = new FormData(this);
+
   // Realiza una petición AJAX para enviar el formulario
   $.ajax({
-    type: "POST",
-    url: "/enviar-formulario", // La URL de tu ruta que maneja el formulario
-    data: formData,
-    success: function (response) {
-        // Actualiza el contenido del span con el mensaje de resultado
-        console.log("Éxito:", response);
-        $("#message").text(response.message);
-    },
-    error: function (xhr, status, error) {
-        // En caso de error, muestra el mensaje de error devuelto por el servidor
-        console.error("Error al enviar el formulario:", error);
-        $("#message").text("Error al enviar el formulario.");
-    },
+      type: "POST",
+      url: "/enviar-formulario", // La URL de tu ruta que maneja el formulario
+      data: formData,
+      processData: false,  // Evita que jQuery convierta los datos en una cadena de consulta
+      contentType: false,  // Evita que jQuery establezca automáticamente el tipo de contenido
+      success: function (response) {
+          // Actualiza el contenido del span con el mensaje de resultado
+          console.log("Éxito:", response);
+          $("#message").text(response.message);
+      },
+      error: function (xhr, status, error) {
+          // En caso de error, muestra el mensaje de error devuelto por el servidor
+          console.error("Error al enviar el formulario:", error);
+          $("#message").text("Error al enviar el formulario.");
+      },
   });
+});
