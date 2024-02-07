@@ -53,7 +53,7 @@ $(document).ready(function () {
           $("#message").text(response.message);
         },
         error: function () {
-          console.log("Error al enviar el formulario.");
+          console.log(error);
           $("#message").text("Error al enviar el formulario.");
         },
       });
