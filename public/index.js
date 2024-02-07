@@ -37,25 +37,19 @@ $(document).ready(function () {
       nav.classList.remove("visible");
   })
 
-  //Mensaje de forulario
-  $(document).ready(function () {
-    $("#miFormulario").submit(function (e) {
-      e.preventDefault();
-  
-      var formData = $("#miFormulario").serialize();
-  
-      $.ajax({
-        type: "POST",
-        url: "/enviar-formulario",
-        data: formData,
-        success: function (response) {
-          console.log("Éxito:", response);
-          $("#message").text(response.message);
-        },
-        error: function () {
-          console.log(error);
-          $("#message").text("Error al enviar el formulario.");
-        },
-      });
-    });
+  // Realiza una petición AJAX para enviar el formulario
+  $.ajax({
+    type: "POST",
+    url: "/enviar-formulario", // La URL de tu ruta que maneja el formulario
+    data: formData,
+    success: function (response) {
+        // Actualiza el contenido del span con el mensaje de resultado
+        console.log("Éxito:", response);
+        $("#message").text(response.message);
+    },
+    error: function (xhr, status, error) {
+        // En caso de error, muestra el mensaje de error devuelto por el servidor
+        console.error("Error al enviar el formulario:", error);
+        $("#message").text("Error al enviar el formulario.");
+    },
   });
