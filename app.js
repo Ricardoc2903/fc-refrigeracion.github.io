@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html')); // Asegúrate de que se envíe el archivo correcto
 });
 
-app.post('https://fc-refrigeracion-github-c4q7qid3u-ricardoc2903s-projects.vercel.app/contacto.html/enviar-formulario', async (req, res) => {
+app.post('/enviar-formulario', async (req, res) => {
   try {
     const { nombre, email, telefono, mensaje, quieroOfertas } = req.body;
 
