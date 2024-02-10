@@ -13,7 +13,7 @@
 // app.use(express.static('public'));
 
 // app.get('/', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'public', 'index.html')); // Asegúrate de que se envíe el archivo correcto
+//   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 // });
 
 // app.post('/enviar-formulario', async (req, res) => {
@@ -57,7 +57,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Ruta para mostrar el formulario
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Ruta para procesar el formulario
