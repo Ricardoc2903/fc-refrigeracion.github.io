@@ -55,6 +55,8 @@ db.connect((err) => {
 // Configura el middleware para procesar formularios
 app.use(express.urlencoded({ extended: false }));
 
+app.use(express.static('public'));
+
 // Ruta para mostrar el formulario
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
