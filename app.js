@@ -57,6 +57,7 @@ db.connect((err) => {
 });
 
 // Configura el middleware para procesar formularios
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static('public'));
