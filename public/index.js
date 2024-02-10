@@ -60,8 +60,8 @@ $(document).ready(function () {
           },
           error: function (xhr, status, error) {
               // En caso de error, muestra el mensaje de error específico en la consola
-              console.log("Error al enviar el formulario:" + xhr.responseText);
-              $("#message").text("Error al enviar el formulario");
+              console.log("Error al enviar el formulario:", xhr.responseText);
+              $("#message").text("Error al enviar el formulario: " + xhr.responseText);
           },
       });
   });
