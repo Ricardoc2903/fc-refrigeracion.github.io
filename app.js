@@ -41,6 +41,10 @@
 // app.js
 const express = require('express');
 const mysql = require('mysql');
+const bodyParser = require('body-parser');
+const path = require('path');
+const db = require('./db');  // Importa la configuración de la base de datos
+const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3000;
 
